@@ -1,29 +1,8 @@
-# cli2
+# app-questionnaire-vue
 
-## Project setup
-```
-npm install
-```
+#Premier jour:
+Creation des pages login et questionnaires
+Découverte du v-form
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#Deuxieme Jour :
+Faire le formulaire de connexion/ 
