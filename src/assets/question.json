@@ -1,0 +1,26 @@
+{
+  "question": [
+    {
+      "nom": "Quel est la capitale du Congo ?",
+      "reponse": [
+        "Paris",
+        "Moscou",
+        "Brazzaville"
+      ]
+    },
+    {
+      "nom": "Oui ?",
+      "reponse": [
+        "oui",
+        "non"
+      ]
+    },
+    {
+      "nom": "ALED !",
+      "reponse" : [
+        "AAAAAAAAAAAAH",
+        "OSKOUR"
+      ]
+    }
+  ]
+}

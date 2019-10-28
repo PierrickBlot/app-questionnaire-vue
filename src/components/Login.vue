@@ -47,8 +47,10 @@
 
 <script>
     import PouchDB from 'pouchdb';
+    import {uuid} from "vue-uuid";
 
-    var db = new PouchDB('dbname');
+    var db = new PouchDB('db');
+
     export default {
         data() {
             return {
@@ -75,24 +77,24 @@
             };
         },
         methods: {
-            insertOnPoutchDb() {
-                db.put({
-                    // _id: this.form.compagnyName,
-                    firstName: this.form.lastName,
-                    lastName: this.form.lastName,
-                    compagnyName: this.form.compagnyName
-                });
-
-                // db.changes().on('change', () => {
-                //     console.log('Ch-Ch-Changes');
-                // });
-
-                db.replicate.to('http://127.0.0.1:5984/epsi%27');
-            },
             validate() {
                 if (this.$refs.form.validate()) {
                     this.snackbar = true
-                    location.href="/questionnaire"
+                    var _id = uuid.v1()
+                    var context = this
+                    db.put({
+                        _id : _id,
+                        firstName: this.form.firstName,
+                        lastName: this.form.lastName,
+                        compagnyName: this.form.compagnyName
+                    }).then(function (doc) {
+                        console.log("router")
+                        console.log(doc)
+                        return db.get(doc.id)
+                    }).then(function (doc) {
+                        console.log(doc)
+                        context.$router.push("/questionnaire")
+                    });
                 }
             },
 
