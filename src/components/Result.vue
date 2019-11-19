@@ -3,6 +3,19 @@
         <v-row>
             <v-col :cols="12" lg="5" md="5" offset-lg="3" offset-md="3">
                 Votre score est de : {{score}} / {{total}} <br>
+                <div v-if="score<total/2">
+                    Dommage<br>
+                    <img src="../assets/accident.gif">
+                </div>
+                <div v-if="score==total" >
+                    Parfait !<br>
+                    <img src="../assets/Victoire.gif">
+                </div>
+                <div v-if="score<total && score>total/2" >
+                    Pas mal !<br>
+                    <img src="../assets/tenor.gif">
+                </div>
+
                 <a href="/">Retour au login</a>
             </v-col>
         </v-row>
