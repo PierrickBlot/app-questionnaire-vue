@@ -93,7 +93,7 @@
                         return db.get(doc.id)
                     }).then(function (doc) {
                         console.log(doc)
-                        context.$router.push("/questionnaire")
+                        context.$router.push({name:'Home',params:{id:_id}});
                     });
                 }
             },

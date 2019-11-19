@@ -8,9 +8,9 @@
                         <v-checkbox
                                 class="pb-5"
                                 v-for="rep in item.reponse" v-bind:key="rep"
-                                v-model="checkbox"
-                                v-bind:label="rep"
-                                v-bind:value="rep">
+                                v-model="rep.value"
+                                v-bind:label="rep.text"
+                                v-bind:value="rep.value">
                             >
                         </v-checkbox>
                     </li>
@@ -29,7 +29,9 @@
 
 <script>
     import question from "../assets/question";
+    import PouchDB from 'pouchdb';
 
+    var db = new PouchDB('db');
     export default {
         name: "Questionnaire",
         props: {},
@@ -41,9 +43,16 @@
         },
         methods: {
             validate() {
-                if (this.$refs.form.validate()) {
-                    this.snackbar = true
-                }
+                this.snackbar = true
+                var router = this.$router
+                var id1 =this.$route.params.id
+                var self = this
+                db.get(this.$route.params.id).then(function (doc) {
+                    doc.questions = self.questions
+                    return db.put(doc)
+                }).then(function () {
+                    router.push({name : "Result",params:{id:id1}})
+                })
             }
         }
     }

@@ -6,7 +6,7 @@
 
 <script>
     // @ is an alias to /src
-    import Form from '@/components/Form.vue';
+    import Form from '@/components/Questionnaire.vue';
 
     export default {
         name: 'home',

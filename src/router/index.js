@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login'
-import Questionnaire from "../components/Questionnaire";
-
+//import Questionnaire from "../components/Questionnaire";
+import Home from "../views/Home.vue";
+import Result from "../components/Result.vue";
 Vue.use(VueRouter)
 
 const routes = [
@@ -12,9 +13,14 @@ const routes = [
     component: Login
   },
   {
-    path: '/questionnaire',
-    name: 'Questionnaire',
-    component: Questionnaire
+    path: '/home/:id',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/result/:id',
+    name: 'Result',
+    component: Result
   }
 ]
 
